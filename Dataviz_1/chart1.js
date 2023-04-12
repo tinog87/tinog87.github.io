@@ -1,89 +1,48 @@
-d3.csv('astronautass.csv', d3.autoType).then(data => {
-  console.log(data)
-  let datafilter = data.filter(d => d.edad_mision >= 55)
-  console.log(datafilter)
-  // Guardamos el svg generado en la variable chart
-  let chart1 = Plot.plot({
-    marks:[
-        Plot.line(
-          data,
-          Plot.groupX({ 
-            y: "mean" }, 
-          { x: "edad_mision", 
-            y: "mision_hs", 
-          }) ),
-          Plot.line(
-            datafilter,
-            Plot.groupX({ 
-              y: "mean" }, 
-            { x: "edad_mision", 
-              y: "mision_hs",
-              stroke: "blue", 
-              
-            }) ),
-          Plot.dot(data, 
-            Plot.groupX({ 
-            y: "mean" }, 
-          { x: "edad_mision", 
-            y: "mision_hs", 
-            fill: "white"      
-          }) 
-          ),
-          Plot.dot(datafilter, 
-            Plot.groupX({ 
-            y: "mean" }, 
-          { x: "edad_mision", 
-            y: "mision_hs", 
-            fill: "blue",   
-          }) 
-          ),
-          Plot.rect({
-            x: "edad_mision",
-            y: "mision_hs",
-            width: 5,
-            height: 100,
-            fill: 'red',
-            fillOpacity: 0.6,
-          }),
-          Plot.text({
-            x: "edad_mision",
-            y: "mision_hs",
-            text: 'Mejor edad promedio',
-            color: 'white',
-            textAlign: 'center',
-            textBaseline: 'middle',
-          }),
-        ],
-    style: {
-      color: "white",
-      fontFamily: "Helvetica",
-      fontSize: "12px",
-      overflow: "visible",
-      background: "transparent",
-    }, color: {
-      legend: false,
+
+
+d3.dsv(';',"vehiculos.csv", d3.autoType).then((data) => {
+
+  let chart3 = Plot.plot({
+    marks: [
+      Plot.barY(
+        data,
+        Plot.groupX({ y: "count" },
+         { x: "canal", 
+         y: "", 
+         sort: { x: "y", reverse: true },
+        }) ),
+    ],
+    color: {
+      legend: true,
       scheme: 'blues',
-    
     },
-    grid: true,
-    line: true,
-    nice: true,
-    label: 'Edad optima',
+    grid:true,
+    line:true,
+    nice:true,
+    width: 600,
     height: 500,
-    width: 700,
-    marginLeft: 100,
+    style: {
+      color: "black",
+      fontFamily: "helvetica",
+      fontSize: "10px",
+    },
+    marginLeft: 55,
+    marginRight: 55,
     marginTop: 50,
-    marginBottom: 50,
-    
+    marginBottom: 100,
+    insetTop: 10,
+    insetBottom: 10,
+    insetLeft:10,
+    insetRight: 10,
     x: {
-      label:"Edades",
-      ticks: 4,
-     },
-     y: {
-        label: "Horas de misión"
-     },
+      label:"Canal",
+      tickRotate: -70,
+      round : true,
+    },
+    y: {
+      label:"Count",
+    }
+  });
   
-  })
-  // Agregamos chart al div#chart de index.html
-  d3.select('#chart1').append(() => chart1)
-})
+  d3.select("#chart3").append(() => chart3);
+});
