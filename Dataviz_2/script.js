@@ -1,5 +1,5 @@
 const mapaFetch = d3.json('barrios-caba.geojson')
-const dataFetch = d3.dsv(';', '147_intoxicacion_alimento.csv', d3.autoType)
+const dataFetch = d3.dsv(';', '147_vehiculos_mal_estacionados.csv', d3.autoType)
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
@@ -16,8 +16,16 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
     marks: [
       Plot.density(data, { x: 'lon', y: 'lat', fill: 'density',bandwidth: 15, thresholds: 30 }),
       Plot.geo(barrios, {
-        stroke: 'gray',
+        stroke: 'black',
         title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
+      }),
+      Plot.text(barrios, {
+        fontSize: 12, // Increased font size
+        
+        fontWeight: 600, // Increased font weight
+        stroke: "white", // Adds white outer stroke to text (for readability)
+        fill: "black", // Text fill color
+        textAnchor: "start", // Left align text with the x- and y-coordinates
       }),
     ],
   })
