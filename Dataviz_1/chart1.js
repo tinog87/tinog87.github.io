@@ -8,8 +8,9 @@ d3.dsv(';',"vehiculos.csv", d3.autoType).then((data) => {
         data,
         Plot.groupX({ y: "count" },
          { x: "canal", 
-         y: "", 
+         y: "Prestacion", ///
          sort: { x: "y", reverse: true },
+         
         }) ),
     ],
     color: {
@@ -18,8 +19,8 @@ d3.dsv(';',"vehiculos.csv", d3.autoType).then((data) => {
     },
     grid:true,
     line:true,
-    nice:true,
-    width: 600,
+    nice:false,
+    width: 800,
     height: 500,
     style: {
       color: "black",
@@ -36,11 +37,10 @@ d3.dsv(';',"vehiculos.csv", d3.autoType).then((data) => {
     insetRight: 10,
     x: {
       label:"Canal",
-      tickRotate: -70,
-      round : true,
     },
     y: {
       label:"Count",
+      ticks:5
     }
   });
   
