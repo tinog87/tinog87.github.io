@@ -38,13 +38,10 @@ let chart34 = Plot.plot({
     tickRotate: -29,
     round : true,
     domain: ['DENUNCIA VIAL','DEFENSA DEL CONSUMIDOR', 'VEHICULOS ABANDONADOS'],
-    
-
     },
     y: {
     label:"Count",
     }
 });
-
 d3.select("#chart34").append(() => chart34);
 });

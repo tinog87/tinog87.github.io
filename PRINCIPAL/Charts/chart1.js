@@ -1,8 +1,8 @@
 
 
-d3.dsv(';',"vehiculos.csv", d3.autoType).then((data) => {
+d3.dsv(';',"../Datasets/vehiculos.csv", d3.autoType).then((data) => {
 
-  let chart3 = Plot.plot({
+  let chart1 = Plot.plot({
     marks: [
       Plot.barY(
         data,
@@ -44,5 +44,5 @@ d3.dsv(';',"vehiculos.csv", d3.autoType).then((data) => {
     }
   });
   
-  d3.select("#chart3").append(() => chart3);
+  d3.select("#chart1").append(() => chart1);
 });

@@ -4,7 +4,7 @@ const dataFetch = d3.dsv(';', '147_vehiculos_mal_estacionados.csv', d3.autoType)
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
   /* Mapa Coroplético */
-  let chartMap = Plot.plot({
+  let chart2 = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
     projection: {
       type: 'mercator',
@@ -31,5 +31,5 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   })
 
   /* Agregamos al DOM la visualización chartMap */
-  d3.select('#chart').append(() => chartMap)
+  d3.select('#chart2').append(() => chart2)
 })
