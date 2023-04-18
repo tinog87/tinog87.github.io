@@ -1,10 +1,12 @@
-const mapaFetch = d3.json('barrios-caba.geojson');
-const dataFetch = d3.dsv(';', 'vehiculos.csv', d3.autoType);
-const dataFetch_2 = d3.dsv(',', 'Barrios_2.csv', d3.autoType);
+const mapaFetch = d3.json('barrios-caba.geojson')
+const dataFetch = d3.dsv(',', 'resultado.csv', d3.autoType)
 
-
-Promise.all([mapaFetch, dataFetch, dataFetch_2]).then(([barrios, data, data2]) => {
-
+Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
+  
+  /* Agrupamos reclamos x barrio */
+  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
+  console.log('reclamosPorBarrio', reclamosPorBarrio)
+  
   /* Mapa Coroplético */
   let chart2 = Plot.plot({
     // https://github.com/observablehq/plot#projection-options
@@ -13,26 +15,26 @@ Promise.all([mapaFetch, dataFetch, dataFetch_2]).then(([barrios, data, data2]) =
       domain: barrios, // Objeto GeoJson a encuadrar
     },
     color: {
+      // Quantize continuo (cant. denuncias) -> discreto (cant. colores)
+      type: 'quantize', 
+      n: 10,
       scheme: 'ylorbr',
+      label: 'Cantidad de denuncias',
+      legend: true,
     },
     marks: [
-      Plot.density(data, { x: 'lon', y: 'lat', fill: 'density',bandwidth: 15, thresholds: 30 }),
       Plot.geo(barrios, {
-        stroke: 'black',
+        fill: d => {
+          let nombreBarrio = d.properties.BARRIO
+          let cantReclamos = reclamosPorBarrio.get(nombreBarrio).length
+          return cantReclamos
+        },
+        stroke: '#ccc',
         title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
       }),
-      Plot.text(barrios, {
-        fontSize: 19, // Increased font size
-        fontWeight: 600, // Increased font weight
-        stroke: "white", // Adds white outer stroke to text (for readability)
-        fill: "black", // Text fill color
-        textAnchor: "start", // Left align text with the x- and y-coordinates
-      }),
     ],
-    
-  });
+  })
 
-  /* Agregar al DOM la visualización chartMap */
-  d3.select('#chart2').append(() => chart2);
-
-});
+  /* Agregamos al DOM la visualización chartMap */
+  d3.select('#chart2').append(() => chart2)
+})
