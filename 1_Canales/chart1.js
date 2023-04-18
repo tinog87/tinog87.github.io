@@ -7,14 +7,14 @@ d3.dsv(',',"resultado.csv", d3.autoType).then((data) => {
         Plot.groupX({ y: "count" },
          { x: "canal", 
          y: "prestacion",
-         fill:'domicilio_barrio',
+        // fill:'domicilio_barrio'// para mi saquemolo, porque no nos da niguna conclusion
          sort: { x: "y", reverse: true },
          
         }) ),
     ],
     color: {
       legend: true,
-      scheme: "tableau10",
+      //scheme: "tableau10",
     },
     grid:true,
     line:true,
@@ -39,7 +39,7 @@ d3.dsv(',',"resultado.csv", d3.autoType).then((data) => {
     },
     y: {
       label:"Count",
-      ticks:40
+      ticks:10
     }
   });
   
