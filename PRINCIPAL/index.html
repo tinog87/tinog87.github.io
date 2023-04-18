@@ -7,11 +7,11 @@
     </head>
 
         <header>
-            <script>
+          <!--<script>
                 window.onload = function() {
                     window.scrollTo(0, 0);
                 }
-            </script>
+            </script> -->
             <style>
                 h3 {
                   color: hwb(0 0% 100%);
@@ -21,37 +21,29 @@
                   font-weight: 500;
                 }
                 </style>
-                <h2><img src="/PRINCIPAL/Images/report.png" height="100" width="100" style="margin-top: 40px;;"></h2>
-
-                <nav class="navigation_1">
-                <a href="#" class="navigation_1-link">
-                        <span>Integrantes del equipo</span>
-                        <div class="navigation_1-tooltip">Yoni Kullock & Martin Gaido</div>
-                      </a>
-                <a href="#" class="navigation_1-link">
-                        <span>Fuentes</span>
-                        <div class="navigation_1-tooltip">astronautas.csv</div>
-                </a>
-                <a href="https://github.com/IoniKul1/TP-2/tree/main/vd_s1_tp2_Kullock_Gaido" class="navigation_1-link">
-                  <span>Github</span>
-                </a>
-                </nav>
 
         </header>
         
         <section class="parallax" id="0">
-            <h2 id="text">Denuncias de Vehiculos</h2>
+            <h2 id="text">Denuncias de Vehiculos<br>mal estacionados</h2>
             <a href="#1">Empezar</a>
 
           </section>
 
         <section class="navigation">
+          <br><br><br><br><br><br><br><br>
             <a href="#0">0. Start</a>
+            <br><br>
             <a href="#1">1. Introducción</a>
+            <br><br>
             <a href="#2">2. Canales</a>
+            <br><br>
             <a href="#3">3. Mapa</a>
+            <br><br>
             <a href="#4">4. Ratio</a>
+            <br><br>
             <a href="#5">5. Conclusión</a>
+            <br><br><br><br><br><br>
         </section>
 
         <button id="Index">
@@ -75,9 +67,9 @@
         </div>
       </div>
 
-        <div class="block" id="2">
+        <div class="block" >
           <div class="container">
-            <div class="chart">
+            <div class="chart" id="2">
               <svg><div id="chart1"></div></svg>
             </div>
             <div class="title">
@@ -89,9 +81,9 @@
         </div>
 
 
-        <div class="block" id="3">
+        <div class="block">
           <div class="container">
-            <div class="chart">
+            <div class="chart" id="3">
               <svg><div id="chart2"></div></svg>
             </div>
             <div class="title">
@@ -103,14 +95,19 @@
           </div>
         </div>
 
-        <div class="block" id="4">
-          <div class="container">
-            <div class="chart">
+        <div class="block">
+          <div class="container"id="4">
+            <div class="title-container" style="margin-bottom: -200px;">
+              <h2>4. Barrios con mas densidad de denuncias</h2>
+            </div>
+            <div class="chart_2" >
               <svg><div id="chart3"></div></svg>
             </div>
-            <div class="title">
-              <br><br><br><br> <br><br><br> 
-              <h2>4. Barrios con mas densidad de denuncias</h2>
+            <div class="chart_3" >
+              <svg><div id="chart4"></div></svg>
+            </div>
+            <div class="title-container">
+              <br><br>
               <h3>En este grafico, buscamos visualizar las ocupaciones de todos los astronautas, usando un grafico de barras para mostrar la cantidad de astronautas para cada ocupacion. Luego, para mas detalle, pintamos las barras mostrando cuales son los paieses que predominan en esos trabajos.</h3>
                 <br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br> <br><br><br><br> <br><br><br><br> 
             </div>
@@ -147,6 +144,21 @@
 
             </div>
         </div>
+        <h2><img src="/PRINCIPAL/Images/report.png" height="100" width="100" style="margin-top: 40px;;"></h2>
+        <nav class="navigation_1">
+        <a href="#" class="navigation_1-link">
+                <span>Integrantes del equipo</span>
+                <div class="navigation_1-tooltip">Yoni Kullock & Martin Gaido</div>
+              </a>
+        <a href="#" class="navigation_1-link">
+                <span>Fuentes</span>
+                <div class="navigation_1-tooltip">astronautas.csv</div>
+        </a>
+        <a href="https://github.com/IoniKul1/TP-2/tree/main/vd_s1_tp2_Kullock_Gaido" class="navigation_1-link">
+          <span>Github</span>
+        </a>
+        </nav>
+
             
         <!-- Scripts -->
         <script src="chart1.js"></script>

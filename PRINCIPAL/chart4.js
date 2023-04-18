@@ -1,47 +1,76 @@
+// Load the data from the CSV file using d3.dsv
+d3.dsv(',','Barrios_2.csv', d3.autoType).then((data) => {
+    // Create the bar chart using Plot.js
+    let datafilt = data.filter(d => d.domicilio_barrio == "VILLA SOLDATI" || d.domicilio_barrio == "PALERMO" || d.domicilio_barrio == "VILLA URQUIZA")
+    console.log(datafilt)
+    let datafilter = data.filter(d => d.domicilio_barrio == "VILLA SOLDATI")
+    console.log(datafilter)
+    let datafilter_2 = data.filter(d => d.domicilio_barrio == "PALERMO")
+    console.log(datafilter_2)
+    let datafilter_3 = data.filter(d => d.domicilio_barrio == "VILLA URQUIZA")
+    console.log(datafilter_3)
 
-d3.dsv(',',"Barrios_2.csv", d3.autoType).then((data) => {
     let chart4 = Plot.plot({
-        marks: [
-        Plot.barX(
-            data,
-            Plot.groupy({ y: "count" },
-            { x: "domicilio_barrio", 
-            y: "", 
+      marks: [
+      Plot.barY(
+          datafilt,
+          { y: "cantidad_denuncias",
+            x: "domicilio_barrio",
             sort: { x: "y", reverse: true },
-            }) ),
-        ],
-        color: {
+            fill: "grey",
+          }) ,
+          Plot.barY(
+            datafilter,
+            { y: "cantidad_denuncias",
+              x: "domicilio_barrio",
+              sort: { x: "y", reverse: true },
+              fill: "red",
+            }) ,
+            Plot.barY(
+                datafilter_2,
+                { y: "cantidad_denuncias",
+                  x: "domicilio_barrio",
+                  sort: { x: "y", reverse: true },
+                  fill: "orange",
+                }) ,
+                Plot.barY(
+                    datafilter_3,
+                    { y: "cantidad_denuncias",
+                      x: "domicilio_barrio",
+                      sort: { x: "y", reverse: true },
+                      fill: "yellow",
+                    }) ,
+      ],
+      color: {
         legend: true,
-        scheme: 'blues',
-        },
-        grid:true,
-        line:true,
-        nice:true,
-        width: 1000,
-        height: 500,
-        style: {
+        scheme: 'blue',
+      },  
+      grid: true,
+      line: false,
+      nice: true,
+      width: 450,
+      height: 650,
+      style: {
         color: "black",
         fontFamily: "helvetica",
         fontSize: "10px",
-        },
-        marginLeft: 55,
-        marginRight: 55,
-        marginTop: 50,
-        marginBottom: 100,
-        insetTop: 10,
-        insetBottom: 10,
-        insetLeft:10,
-        insetRight: 10,
-        x: {
-        label:"Canal",
-        tickRotate: -29,
-        round : true,
-        },
-        y: {
-        label:"Count",
-        }
-    });
-    
-    d3.select("#chart4").append(() => chart4);
-    });
-    
+      },
+      marginLeft: 150,
+      marginRight: 55,
+      marginTop: 26,
+      marginBottom: 50,
+      insetTop: 10,
+      insetBottom: 10,
+      insetLeft: 10,
+      insetRight: 10,
+      x: {
+        label:"Barrios",
+        ticks:10,
+      },
+      y: {
+        label:"Cantidad de denuncias",
+      }
+  });
+    d3.select('#chart4').append(() => chart4);
+  });
+  

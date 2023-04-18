@@ -45,6 +45,9 @@ header {
   overflow-x: visible; /* Muestra todo el contenido al ampliar el ancho */
 }
 
+.navigation_1 {
+  background-color: #fff;
+}
 
 .navigation a {
   display: block;
@@ -127,10 +130,11 @@ header {
     height: 80vh;
     margin-bottom: 10%;
     padding-bottom: 10%;
+    text-align: center;
 }
 .parallax h2 {
-  margin-left: 10%;
-  margin-top: -5%;
+  margin-left: 14%;
+  margin-top: -18%;
 
 }
 
@@ -143,9 +147,8 @@ header {
   display: block;
   font-size:x-large;
   margin-top: 205px;
-  margin-left: 150px;
-  text-align: left;
-  font-weight:600;
+  margin-left: 14%;
+  font-weight: 600;
   color: #000000;
   text-decoration:none;
   border-radius: 25px;
@@ -266,6 +269,37 @@ html{
     margin: 200px;
   }
 
+  .block .chart_2-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: 60%;
+    
+  }
+  .block .chart_3-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-basis: 40%;
+    
+  }
+
+  .chart_2-container {
+    width: 100%;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      grid-column: 1 / span 2;
+    }
+    
+
   .block_4 svg {
     width: auto;
     height: auto;
@@ -304,7 +338,6 @@ html{
     height: fit-content;
     margin-left: auto;
   }
-
   .title h4 {
     color: #000000;
     font-weight: 500;

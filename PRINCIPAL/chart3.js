@@ -3,7 +3,10 @@ d3.dsv(',','Barrios_2.csv', d3.autoType).then((data) => {
   // Create the bar chart using Plot.js
   let datafilter = data.filter(d => d.ratio >= 0.10)
   console.log(datafilter)
-
+  let datafilter_2 = data.filter(d => d.domicilio_barrio == "PALERMO")
+  console.log(datafilter_2)
+  let datafilter_3 = data.filter(d => d.domicilio_barrio == "VILLA URQUIZA")
+  console.log(datafilter_3)
   let chart3 = Plot.plot({
     marks: [
     Plot.barX(
@@ -17,38 +20,53 @@ d3.dsv(',','Barrios_2.csv', d3.autoType).then((data) => {
           datafilter,
           { x: "ratio",
             y: "domicilio_barrio",
-            sort: { y: "xx", reverse: true },
+            sort: { y: "x", reverse: true },
             fill: "red",
           }) ,
+          Plot.barX(
+            datafilter_2,
+            { x: "ratio",
+              y: "domicilio_barrio",
+              sort: { y: "x", reverse: true },
+              fill: "orange",
+            }) ,
+            Plot.barX(
+              datafilter_3,
+              { x: "ratio",
+                y: "domicilio_barrio",
+                sort: { y: "x", reverse: true },
+                fill: "yellow",
+              }) ,
     ],
     color: {
-    legend: true,
-    scheme: 'blue',
+      legend: true,
+      scheme: 'blue',
     },  
     grid: true,
     line: false,
     nice: true,
-    width: 700,
-    height: 800,
+    width: 600,
+    height: 600,
     style: {
-    color: "black",
-    fontFamily: "helvetica",
-    fontSize: "13px",
+      color: "black",
+      fontFamily: "helvetica",
+      fontSize: "10px",
     },
     marginLeft: 150,
     marginRight: 55,
     marginTop: 7,
-    marginBottom: 100,
-    insetTop: 10,
+    marginBottom: 60,
+    insetTop: 0,
     insetBottom: 10,
     insetLeft: 10,
     insetRight: 10,
     x: {
-    label:"Cantidad de denuncias / densidad de población",
-    ticks:10,
+      label:"Cantidad de denuncias / densidad de población",
+      ticks:10,
+      
     },
     y: {
-    label:"Barrios",
+      label:"Barrios",
     }
 });
   d3.select('#chart3').append(() => chart3);
