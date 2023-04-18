@@ -1,5 +1,5 @@
 const mapaFetch = d3.json('barrios-caba.geojson')
-const dataFetch = d3.dsv(',', 'resultado.csv', d3.autoType)
+const dataFetch = d3.dsv(',', 'resultado_filtrado.csv', d3.autoType)
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   
@@ -17,7 +17,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
     color: {
       // Quantize continuo (cant. denuncias) -> discreto (cant. colores)
       type: 'quantize', 
-      n: 10,
+      n: 8,
       scheme: 'ylorbr',
       label: 'Cantidad de denuncias',
       legend: true,
@@ -25,12 +25,19 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
     marks: [
       Plot.geo(barrios, {
         fill: d => {
-          let nombreBarrio = d.properties.BARRIO
-          let cantReclamos = reclamosPorBarrio.get(nombreBarrio).length
-          return cantReclamos
+          let nombreBarrio = d.properties.BARRIO;
+          let cantReclamos = reclamosPorBarrio.get(nombreBarrio)?.length || 0;
+          return cantReclamos;
         },
         stroke: '#ccc',
-        title: d => `${d.properties.BARRIO}\n${d.properties.DENUNCIAS} denuncias`,
+        title: d => {
+          let nombreBarrio = d.properties.BARRIO;
+          let cantReclamos = reclamosPorBarrio.get(nombreBarrio)?.length || 0;
+          let cantidadHabitantes = reclamosPorBarrio.get(nombreBarrio)?.[0]?.habitantes || 'N/A';
+          let ratio = reclamosPorBarrio.get(nombreBarrio)?.[0]?.ratio || 'N/A';
+          let duracionTotal = reclamosPorBarrio.get(nombreBarrio)?.[0]?.duracion_total || 'N/A'; // Agrega la nueva variable duracion_total
+          return `${d.properties.BARRIO}\n${cantReclamos} denuncias\nCantidad de Habitantes: ${cantidadHabitantes}\nRatio: ${ratio}\nDuracion Total Denuncias: ${duracionTotal.toFixed(0)} dias`; // Actualiza el título con la nueva variable y quita los decimales
+        },
       }),
     ],
   })
