@@ -24,7 +24,7 @@ d3.dsv(',','Barrios_2.csv', d3.autoType).then((data) => {
             { y: "cantidad_denuncias",
               x: "domicilio_barrio",
               sort: { x: "y", reverse: true },
-              fill: "red",
+              fill: "brown",
             }) ,
             Plot.barY(
                 datafilter_2,

@@ -1,12 +1,16 @@
 // Load the data from the CSV file using d3.dsv
 d3.dsv(',','Barrios_2.csv', d3.autoType).then((data) => {
   // Create the bar chart using Plot.js
+
   let datafilter = data.filter(d => d.ratio >= 0.10)
   console.log(datafilter)
+
   let datafilter_2 = data.filter(d => d.domicilio_barrio == "PALERMO")
   console.log(datafilter_2)
+
   let datafilter_3 = data.filter(d => d.domicilio_barrio == "VILLA URQUIZA")
   console.log(datafilter_3)
+
   let chart3 = Plot.plot({
     marks: [
     Plot.barX(
@@ -21,7 +25,7 @@ d3.dsv(',','Barrios_2.csv', d3.autoType).then((data) => {
           { x: "ratio",
             y: "domicilio_barrio",
             sort: { y: "x", reverse: true },
-            fill: "red",
+            fill: "brown",
           }) ,
           Plot.barX(
             datafilter_2,
@@ -40,7 +44,6 @@ d3.dsv(',','Barrios_2.csv', d3.autoType).then((data) => {
     ],
     color: {
       legend: true,
-      scheme: 'blue',
     },  
     grid: true,
     line: false,

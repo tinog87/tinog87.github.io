@@ -29,7 +29,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           let cantReclamos = reclamosPorBarrio.get(nombreBarrio)?.length || 0;
           return cantReclamos;
         },
-        stroke: '#ccc',
+        stroke: '#000',
         title: d => {
           let nombreBarrio = d.properties.BARRIO;
           let cantReclamos = reclamosPorBarrio.get(nombreBarrio)?.length || 0;

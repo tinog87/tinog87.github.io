@@ -10,8 +10,8 @@
           <!--<script>
                 window.onload = function() {
                     window.scrollTo(0, 0);
-                }
-            </script> -->
+                }-->
+            </script>
             <style>
                 h3 {
                   color: hwb(0 0% 100%);
@@ -26,12 +26,12 @@
         
         <section class="parallax" id="0">
             <h2 id="text">Denuncias de Vehiculos<br>mal estacionados</h2>
-            <a href="#1">Empezar</a>
+            <a id='text_1'href="#1">Empezar</a>
 
           </section>
 
         <section class="navigation">
-          <br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br>
             <a href="#0">0. Start</a>
             <br><br>
             <a href="#1">1. Introducción</a>
@@ -43,7 +43,9 @@
             <a href="#4">4. Ratio</a>
             <br><br>
             <a href="#5">5. Conclusión</a>
-            <br><br><br><br><br><br>
+            <br><br>
+            <a href="#6">6. Footer</a>
+            <br><br><br><br><br><br><br><br>
         </section>
 
         <button id="Index">
@@ -58,28 +60,42 @@
 
     <div class="block"id="1">
         <div class="texto_normal">
-          <h2><img src= "/PRINCIPAL/Images/car.png" height="120" width="148"></h2>
+          <h2><img src= "/PRINCIPAL/Images/man_2.webp" height="200" width="200"></h2>
           <h2>1. Introducción: Denuncias de vehiculos mal estacionados
           </h2>
           <h4>
-            Lorem ipsum </h4>
+            En este trabajo nos adentraremos en el análisis de datos 
+            sobre la ciudad de Buenos Aires, centrándonos en dos aspectos clave: 
+            las denuncias de autos mal estacionados y la densidad poblacional por barrio. 
+            Estos dos temas son relevantes en el contexto urbano de la ciudad y nos permitirán 
+            comprender mejor la dinámica de la movilidad y el uso del espacio público por parte de los habitantes.</h4>
          
         </div>
       </div>
 
-        <div class="block" >
-          <div class="container">
-            <div class="chart" id="2">
+        <div class="block">
+          <div class="container"id="2">
+            <div class="title-container" style="margin-bottom: -200px;">
+              <h2>2. De que canal viene la denuncia?</h2>
+            </div>
+            <div class="chart_2" >
               <svg><div id="chart1"></div></svg>
             </div>
-            <div class="title">
-  <br><br><br>  <br><br><br>
-              <h2>2. De que canal viene la denuncia?</h2>
-              <h3> Lorem ipsum</h3>
+            <div class="chart_3" >
+              <svg><div id="chart5"></div></svg>
+            </div>
+            <div class="title-container">
+              <br><br>
+              <h3>Veamos que la mayor cantidad de denuncias proviene de parte de la App Denuncia Vial, 
+                siendo asi un exito total abarcando un total del 78% de las denuncias de vehiculos mal 
+                estacionados en la Ciudad De Buenos Aires en Enero de 2021. Si extraemos los barrios 
+                con mas denuncias, como se puede visualizar en el segundo grafico obtenemos que la 
+                población de los barrios que utiliza este canal para denunciar los casos de mal estacionamiento
+                son la gran mayoria. </h3>
+                <br><br><br> <br><br><br><br><br><br><br><br> <br>
             </div>
           </div>
         </div>
-
 
         <div class="block">
           <div class="container">
@@ -89,7 +105,10 @@
             <div class="title">
               <br><br><br><br> <br><br><br> 
               <h2>3. Mapa de barrios de Bsas</h2>
-              <h3>En este grafico, buscamos visualizar las ocupaciones de todos los astronautas, usando un grafico de barras para mostrar la cantidad de astronautas para cada ocupacion. Luego, para mas detalle, pintamos las barras mostrando cuales son los paieses que predominan en esos trabajos.</h3>
+              <h3>En este grafico, buscamos visualizar las ocupaciones de todos 
+                los astronautas, usando un grafico de barras para mostrar la cantidad de 
+                astronautas para cada ocupacion. Luego, para mas detalle, pintamos las barras 
+                mostrando cuales son los paieses que predominan en esos trabajos.</h3>
                 <br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br> <br><br><br><br> <br><br><br><br> 
             </div>
           </div>
@@ -109,7 +128,7 @@
             <div class="title-container">
               <br><br>
               <h3>En este grafico, buscamos visualizar las ocupaciones de todos los astronautas, usando un grafico de barras para mostrar la cantidad de astronautas para cada ocupacion. Luego, para mas detalle, pintamos las barras mostrando cuales son los paieses que predominan en esos trabajos.</h3>
-                <br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br> <br><br><br><br> <br><br><br><br> 
+                <br><br><br> <br><br><br><br><br><br><br><br> <br>
             </div>
           </div>
         </div>
@@ -144,27 +163,37 @@
 
             </div>
         </div>
-        <h2><img src="/PRINCIPAL/Images/report.png" height="100" width="100" style="margin-top: 40px;;"></h2>
-        <nav class="navigation_1">
-        <a href="#" class="navigation_1-link">
-                <span>Integrantes del equipo</span>
-                <div class="navigation_1-tooltip">Yoni Kullock & Martin Gaido</div>
-              </a>
-        <a href="#" class="navigation_1-link">
-                <span>Fuentes</span>
-                <div class="navigation_1-tooltip">astronautas.csv</div>
-        </a>
-        <a href="https://github.com/IoniKul1/TP-2/tree/main/vd_s1_tp2_Kullock_Gaido" class="navigation_1-link">
-          <span>Github</span>
-        </a>
-        </nav>
-
+        <footer>
+          <div class="footer-image-container">
+            <img src="/PRINCIPAL/Images/LOGO.png" alt="Descripción de la imagen">
+            <div class="footer-container" id="6">
+              <div class="bibliography-column">
+                <h1>Bibliografía</h1>
+                <ul>
+                  <li><a href="#">Barrios-Caba Geo</a></li>
+                  <li><a href="https://es.wikipedia.org/wiki/Anexo:Barrios_de_la_ciudad_de_Buenos_Aires">Wikipedia - Anexo: Barrios de la ciudad</a></li>
+                  <li><a href="#">Libro 2</a></li>
+                  <li><a href="#">Artículo 2</a></li>
+                </ul>
+              </div>
+              <div class="team-column">
+                <h1>Integrantes del equipo</h1>
+                <ul>
+                  <li><a>Yoni Kullock</a></li>
+                  <li><a>Martin Gaido</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
             
         <!-- Scripts -->
         <script src="chart1.js"></script>
         <script src="chart2.js"></script>
         <script src="chart3.js"></script>
         <script src="chart4.js"></script>
+        <script src="chart5.js"></script>
+
 
         <script src="home.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
