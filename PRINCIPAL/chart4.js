@@ -1,5 +1,5 @@
 // Load the data from the CSV file using d3.dsv
-d3.dsv(',','resultado_filtrado_6.csv', d3.autoType).then((data) => {
+d3.dsv(',','Barrios_3.csv', d3.autoType).then((data) => {
     // Create the bar chart using Plot.js
     let datafilt = data.filter(d => d.domicilio_barrio == "VILLA SOLDATI" || d.domicilio_barrio == "PALERMO" || d.domicilio_barrio == "VILLA URQUIZA" )
     console.log(datafilt)
@@ -69,7 +69,6 @@ d3.dsv(',','resultado_filtrado_6.csv', d3.autoType).then((data) => {
       },
       y: {
         label:"Cantidad de denuncias",
-        ticks:10,
       }
   });
     d3.select('#chart4').append(() => chart4);

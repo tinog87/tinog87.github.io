@@ -97,7 +97,7 @@ header {
 }
 
 .block {
-    background-image:url("/PRINCIPAL/Images/Frame 5.png");
+    background-image:url("/PRINCIPAL/Images/giff.gif");
     box-sizing: content-box;
     background-size: cover;
     background-attachment: fixed;
@@ -120,7 +120,7 @@ header {
 }
 
 .parallax {
-    background-image: url("/PRINCIPAL/Images/TODO_2.png");
+    background-image: url("/PRINCIPAL/Images/PARAL_G.gif");
     box-sizing: content-box;
     background-size: cover;
     background-attachment: fixed;
@@ -254,8 +254,8 @@ html{
   .container {
     display: grid;
     grid-template-columns: 60% 40%;
-    margin-right: 20%;
-    margin-left: 20%;
+    margin-right: 25%;
+    margin-left: 15%;
     margin-top: 5%;
     margin-bottom: 10%;
   }
@@ -361,6 +361,10 @@ html{
     font-weight: 700;
   }
   
+   .team-column h2 {
+    font-weight: 500;
+  }
+  
   .bibliography-column a, .team-column a {
     text-decoration: underline;
     color: #000;
@@ -375,3 +379,17 @@ html{
   .image-column img {
     max-width: 100%;
   }
+
+  #sig {
+    font-size: xx-large ;
+    text-decoration:none;
+    color: #000000;
+    margin-left: 47%;
+    font-weight: 500;
+  }
+
+  #sig:hover {
+    color: #6d6d6d;
+  }
+
+  
