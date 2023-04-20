@@ -97,12 +97,11 @@ header {
 }
 
 .block {
-    background-image:url("/PRINCIPAL/Images/CALLE_2.png");
+    background-image:url("/PRINCIPAL/Images/Frame 5.png");
     box-sizing: content-box;
     background-size: cover;
     background-attachment: fixed;
-    margin-top: auto;
-    display: flex;
+    display:flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -128,7 +127,7 @@ header {
     display: flex;
     align-items: center;
     height: 80vh;
-    margin-bottom: 0;
+    margin-bottom: 6%;
     padding-bottom: 20%;
     text-align: left;
 }
@@ -290,7 +289,6 @@ html{
       text-align: center;
       grid-column: 1 / span 2;
     }
-    
 
   .block_4 svg {
     width: auto;
@@ -317,14 +315,6 @@ html{
     margin-top: auto;
   }
 
-  .container4 {
-    display: flex;
-    display: table-column;
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: -100px;
-  }
-
   .chart{
     width: fit-content;
     height: fit-content;
@@ -337,6 +327,7 @@ html{
   }
 
   .texto_normal {
+    padding-top: 10%;
     margin-left: 20%;
     margin-right: 20%;
     margin-bottom: 20%;
@@ -344,8 +335,7 @@ html{
   }
 
   .texto_normal h4 {
-    font-weight: 300;
-    font-size: x-large;
+    font-weight: 400;
   }
   
   footer {
@@ -354,47 +344,34 @@ html{
     box-sizing: content-box;
     background-size: cover;
     background-attachment: fixed;
-
-  }
-  
-  .footer-image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .footer-image-container img {
-    max-width: 100%;
-    margin-bottom: 20px;
   }
   
   .footer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-left: 20%;
     margin-right: 20%;
   }
   
-  .bibliography-column,
-  .team-column {
-    width: 100%;
+  .column {
+    width: 30%;
   }
   
-  .bibliography-column h1 {
+  .bibliography-column h1, .team-column h1 {
     font-weight: 700;
   }
   
-  .bibliography-column a {
+  .bibliography-column a, .team-column a {
     text-decoration: underline;
     color: #000;
   }
   
-  .team-column h1 {
-    font-weight: 700;
+  .image-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  .team-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .image-column img {
+    max-width: 100%;
   }

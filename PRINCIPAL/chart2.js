@@ -1,22 +1,19 @@
 const mapaFetch = d3.json('barrios-caba.geojson')
-const dataFetch = d3.dsv(',', 'resultado_filtrado.csv', d3.autoType)
+const dataFetch = d3.dsv(',', 'resultante.csv', d3.autoType)
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
-  
+
   /* Agrupamos reclamos x barrio */
-  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
-  console.log('reclamosPorBarrio', reclamosPorBarrio)
-  
+  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio)
+
   /* Mapa Coroplético */
   let chart2 = Plot.plot({
-    // https://github.com/observablehq/plot#projection-options
     projection: {
       type: 'mercator',
-      domain: barrios, // Objeto GeoJson a encuadrar
+      domain: barrios,
     },
     color: {
-      // Quantize continuo (cant. denuncias) -> discreto (cant. colores)
-      type: 'quantize', 
+      type: 'quantize',
       n: 8,
       scheme: 'ylorbr',
       label: 'Cantidad de denuncias',
@@ -35,13 +32,12 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           let cantReclamos = reclamosPorBarrio.get(nombreBarrio)?.length || 0;
           let cantidadHabitantes = reclamosPorBarrio.get(nombreBarrio)?.[0]?.habitantes || 'N/A';
           let ratio = reclamosPorBarrio.get(nombreBarrio)?.[0]?.ratio || 'N/A';
-          let duracionTotal = reclamosPorBarrio.get(nombreBarrio)?.[0]?.duracion_total || 'N/A'; // Agrega la nueva variable duracion_total
-          return `${d.properties.BARRIO}\n${cantReclamos} denuncias\nCantidad de Habitantes: ${cantidadHabitantes}\nRatio: ${ratio}\nDuracion Total Denuncias: ${duracionTotal.toFixed(0)} dias`; // Actualiza el título con la nueva variable y quita los decimales
+          let duracionTotal = reclamosPorBarrio.get(nombreBarrio)?.[0]?.duracion_total || 'N/A';
+          return `${d.properties.BARRIO}\n${cantReclamos} denuncias\nCantidad de Habitantes: ${cantidadHabitantes}\nRatio: ${ratio}\nDuracion Total Denuncias: ${duracionTotal.toFixed(0)} dias`;
         },
-      }),
-    ],
-  })
+      })
+    ]
+  });
 
-  /* Agregamos al DOM la visualización chartMap */
-  d3.select('#chart2').append(() => chart2)
-})
+  d3.select('#chart2').append(() => chart2);
+});
