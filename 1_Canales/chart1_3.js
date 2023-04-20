@@ -1,4 +1,4 @@
-d3.dsv(',',"resultado_filtrado_2.csv", d3.autoType).then((data) => {
+//d3.dsv(',',"resultado_filtrado_2.csv", d3.autoType).then((data) => {
     let datafilter = data.filter(d => d.cantidad_denuncias > 420)
     console.log(datafilter)
     let chart1_3 = Plot.plot({
